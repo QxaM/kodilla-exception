@@ -6,13 +6,13 @@ public final class FlightSearchEngine {
 
     private final Map<String, Boolean> flightMap = new HashMap<>();
 
-    public void findFlight(Flight flight) throws RouteNotFoundException {
-        List<String> canFlightTo = flightMap.entrySet().stream()
-                .filter(f -> f.getKey().equals(flight.getArrivalAirport()))
-                .filter(f -> f.getValue().equals(Boolean.TRUE))
-                .map(Map.Entry::getKey).toList();
+    public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
-        if (canFlightTo.isEmpty()) {
+        Boolean flightAvailable = flightMap.get(flight.getArrivalAirport());
+
+        if (Objects.nonNull(flightAvailable)){
+            return flightAvailable;
+        } else {
             throw new RouteNotFoundException("Flight not found!");
         }
     }

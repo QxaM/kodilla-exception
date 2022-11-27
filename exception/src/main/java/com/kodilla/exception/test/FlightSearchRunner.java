@@ -10,9 +10,11 @@ public class FlightSearchRunner {
         flightSearchEngine.addFlight("London", false);
 
         try {
-            flightSearchEngine.findFlight(new Flight("Warsaw", "London"));
-            System.out.println("Flight found and available!");
-
+            if(flightSearchEngine.findFlight(new Flight("Warsaw", "London"))){
+                System.out.println("Flight found and available!");
+            } else {
+                System.out.println("Flight not available!");
+            }
         }catch (NullPointerException e) {
             System.out.println("Error! Search engine is empty!");
         }catch (RouteNotFoundException e) {
@@ -22,8 +24,11 @@ public class FlightSearchRunner {
         }
 
         try {
-            flightSearchEngine.findFlight(new Flight("Warsaw", "Chicago"));
-            System.out.println("Flight found and available!");
+            if(flightSearchEngine.findFlight(new Flight("Warsaw", "Chicago"))){
+                System.out.println("Flight found and available!");
+            } else {
+                System.out.println("Flight not available!");
+            }
         }catch (NullPointerException e) {
             System.out.println("Error! Search engine is empty!");
         }catch (RouteNotFoundException e) {
@@ -33,8 +38,11 @@ public class FlightSearchRunner {
         }
 
         try {
-            flightSearchEngine.findFlight(null);
-            System.out.println("Flight found and available!");
+            if(flightSearchEngine.findFlight(null)){
+                System.out.println("Flight found and available!");
+            } else {
+                System.out.println("Flight not available!");
+            }
         }catch (NullPointerException e) {
             System.out.println("Error! Flight or search engine empty!");
         }catch (RouteNotFoundException e) {
@@ -44,8 +52,11 @@ public class FlightSearchRunner {
         }
 
         try {
-            flightSearchEngine.findFlight(new Flight("Warsaw", "Tokio"));
-            System.out.println("Flight found and available!");
+            if(flightSearchEngine.findFlight(new Flight("Warsaw", "Tokio"))){
+                System.out.println("Flight found and available!");
+            } else {
+                System.out.println("Flight not available!");
+            }
         }catch (NullPointerException e) {
             System.out.println("Error! Search engine is empty!");
         }catch (RouteNotFoundException e) {
